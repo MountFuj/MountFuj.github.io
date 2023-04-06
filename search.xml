@@ -12,6 +12,12 @@
       
       
       
+        <tags>
+            
+            <tag> Java框架Spring </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -23,6 +29,12 @@
       
         <content type="html"><![CDATA[<p>#关于博客网站的用途</p><p>1.记录java学习日常</p><p>2.分享算法题目</p><p>3.java八股文的记录</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 博客主题作用 </category>
+          
+      </categories>
       
       
     </entry>
