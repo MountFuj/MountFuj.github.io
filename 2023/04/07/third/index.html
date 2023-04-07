@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>Archives | Mr.zhangのblog</title>
+        <title>算法之数组篇 | Mr.zhangのblog</title>
         <meta name="author" content="Mr.zhang" />
         <meta name="description" content="java技术分享" />
         <!-- <i class="fa-brands fa-github"></i> -->
@@ -29,6 +29,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -169,96 +173,54 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
+                <div class="article">
+    <div>
+        <h1>算法之数组篇</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/7
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
                 
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="thefirstblog">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/5</div>
-                <a href="/2023/04/05/first/">
-                    <h3>the first blog</h3>
-                </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BD%9C%E7%94%A8/">
-                            <span class="icon">
-                                <i class="fa-solid fa-bookmark fa-fw"></i>
-                            </span>
-                            博客主题作用
-                        </a>
-                    </span>
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="框架概念的出现">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/6</div>
-                <a href="/2023/04/06/second/">
-                    <h3>框架概念的出现</h3>
-                </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/Java/">
-                            <span class="icon">
-                                <i class="fa-solid fa-bookmark fa-fw"></i>
-                            </span>
-                            Java
-                        </a>
-                    </span>
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E6%A1%86%E6%9E%B6/" style="color: #00bcd4">框架</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="算法之数组篇">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/7</div>
-                <a href="/2023/04/07/third/">
-                    <h3>算法之数组篇</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #03a9f4">算法</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #03a9f4">算法</a>
+            </span>
+            
+        </span>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h3 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704.二分查找"></a>704.二分查找</h3><p>[力扣题目链接](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-search/">. - 力扣（Leetcode）</a>)</p>
+<p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p>
+<p>示例1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [-1,0,3,5,9,12], target = 9     </span><br><span class="line">输出: 4       </span><br><span class="line">解释: 9 出现在 nums 中并且下标为 4 </span><br></pre></td></tr></table></figure>
+
+<p>示例2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [-1,0,3,5,9,12], target = 2     </span><br><span class="line">输出: -1        </span><br><span class="line">解释: 2 不存在 nums 中因此返回 -1      </span><br></pre></td></tr></table></figure>
+
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="type">int</span> m=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;nums[m])&#123;</span><br><span class="line">                left=m+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;nums[m])&#123;</span><br><span class="line">                right=m-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> m;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
                 <footer id="footer">
@@ -290,6 +252,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>

@@ -4,17 +4,42 @@
   
     
     <entry>
-      <title>spring框架</title>
-      <link href="/2023/04/06/second/"/>
-      <url>/2023/04/06/second/</url>
+      <title>算法之数组篇</title>
+      <link href="/2023/04/07/third/"/>
+      <url>/2023/04/07/third/</url>
       
-        <content type="html"><![CDATA[<p>#关于Spring框架的三种思想提出</p><p>1.IoC思想&#x3D;&#x3D;&gt;Inversion of Controller,控制反转，强调的是原来在程序中创建Bean的权利反转给第三方。</p><p>2.DI思想&#x3D;&#x3D;&gt;Dependency Injection,依赖注入，强调的Bean之间关系，这种关系第三方负责去设置。</p><p>3.AOP思想&#x3D;&#x3D;&gt;Aspect Oriented Programming，面向切面编程，功能的横向抽取，主要的实现方式就是Proxy.</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704.二分查找"></a>704.二分查找</h3><p>[力扣题目链接](<a href="https://leetcode.cn/problems/binary-search/">. - 力扣（Leetcode）</a>)</p><p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p><p>示例1：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [-1,0,3,5,9,12], target = 9     </span><br><span class="line">输出: 4       </span><br><span class="line">解释: 9 出现在 nums 中并且下标为 4 </span><br></pre></td></tr></table></figure><p>示例2：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [-1,0,3,5,9,12], target = 2     </span><br><span class="line">输出: -1        </span><br><span class="line">解释: 2 不存在 nums 中因此返回 -1      </span><br></pre></td></tr></table></figure><p>示例代码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="type">int</span> m=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;nums[m])&#123;</span><br><span class="line">                left=m+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;nums[m])&#123;</span><br><span class="line">                right=m-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> m;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
         <tags>
             
-            <tag> Java框架Spring </tag>
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>框架概念的出现</title>
+      <link href="/2023/04/06/second/"/>
+      <url>/2023/04/06/second/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关于Spring框架的三种思想提出"><a href="#关于Spring框架的三种思想提出" class="headerlink" title="关于Spring框架的三种思想提出"></a>关于Spring框架的三种思想提出</h2><p>1.IoC思想&#x3D;&#x3D;&gt;Inversion of Controller,控制反转，强调的是原来在程序中创建Bean的权利反转给第三方。</p><p>谁去充当第三方角色呢？</p><p>工厂设计模式，BeanFactory来充当第三方的角色，来产生Bean实例</p><p>BeanFactory怎么知道产生哪些Bean实例呢？</p><p>可以使用配置文件配置Bean的基本信息，BeanFactory根据配置文件来生产Bean实例</p><p>2.DI思想&#x3D;&#x3D;&gt;Dependency Injection,依赖注入，强调的Bean之间关系，这种关系第三方负责去设置。</p><p>3.AOP思想&#x3D;&#x3D;&gt;Aspect Oriented Programming，面向切面编程，功能的横向抽取，主要的实现方式就是Proxy.</p><h3 id="框架的基本特点"><a href="#框架的基本特点" class="headerlink" title="-框架的基本特点"></a>-框架的基本特点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架（Framework）,是基于基础技术之上，从众多业务中抽取出的通用解决方案</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架是一个半成品，使用框架规定的语法开发可以提高开发效率，可以用简单的代码就能完成复杂的基础业务;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架内部使用大量的设计模式、算法、底层代码操作技术，如反射、内省、xml解析、注解解析等;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架一般都具备扩展性;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.有了框架，我们可以将精力尽可能的投入在纯业务开发上而不用去费心技术实现以及一些辅助业务。</span><br></pre></td></tr></table></figure><h3 id="Java中常用的框架："><a href="#Java中常用的框架：" class="headerlink" title="-Java中常用的框架："></a>-Java中常用的框架：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-不同语言，不同领域都有属于自己的框架，使用框架开发是作为程序员的最基础的底线。Java语言中的框架，可以分为基础框架和服务框架:</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--基础框架:完成基本业务操作的框架，如MyBatis、Spring、SpringMVC、Struts2、Hibernate等</span><br><span class="line">-服务框架:特定领域的框架，一般还可以对外提供服务框架，如MQ、ES、Nacos等</span><br></pre></td></tr></table></figure><h3 id="DI依赖注入的思想"><a href="#DI依赖注入的思想" class="headerlink" title="-DI依赖注入的思想"></a>-DI依赖注入的思想</h3><p>将UserDao在BeanFactory内部设置给UserService的过程叫做“<strong>注入</strong>”，而UserService需要依赖UserDao的注入才能正常工作，这个过程叫做“<strong>依赖注入</strong></p><p><img src="/../img/1.png" alt="依赖注入"></p><p>面试题：IoC 和 DI 的关系？</p><p>首先，先回答IoC和DI的是什么：</p><p>IoC： Inversion of Control，控制反转，将Bean的创建权由原来程序反转给第三方</p><p>DI：Dependency Injection，依赖注入，某个Bean的完整创建依赖于其他Bean（或普通参数）的注入</p><p>其次，在回答IoC和DI的关系：</p><p>第一种观点：IoC强调的是Bean创建权的反转，而DI强调的是Bean的依赖关系，认为不是一回事</p><p>第二种观点：IoC强调的是Bean创建权的反转，而DI强调的是通过注入的方式反转Bean的创建权，认为DI</p><p>是IoC的其中一种实现方式</p><h3 id="AOP-面向切面思想的提出"><a href="#AOP-面向切面思想的提出" class="headerlink" title="- AOP 面向切面思想的提出"></a>- AOP 面向切面思想的提出</h3><p>AOP，Aspect Oriented Programming，面向切面编程，是对面向对象编程OOP的升华。OOP是纵向对一个</p><p>事物的抽象，一个对象包括静态的属性信息，包括动态的方法信息等。而AOP是横向的对不同事物的抽象，属</p><p>性与属性、方法与方法、对象与对象都可以组成一个切面，而用这种思维去设计编程的方式叫做面向切面编程</p><p><img src="/../img/2.png" alt="oop"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 框架 </tag>
             
         </tags>
       

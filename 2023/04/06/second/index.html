@@ -3,11 +3,11 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>spring框架 | Mr.zhangのblog</title>
+        <title>框架概念的出现 | Mr.zhangのblog</title>
         <meta name="author" content="Mr.zhang" />
         <meta name="description" content="java技术分享" />
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-brands fa-qq"></i>
+        <!-- <i class="fa-brands fa-github"></i> -->
+        <!-- <i class="fa-brands fa-qq"></i> -->
         <meta name="keywords" content="java、算法" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
         <link rel="icon" href="/images/avatar.jpg" />
@@ -175,7 +175,7 @@
             <div id="main" v-show="!loading">
                 <div class="article">
     <div>
-        <h1>spring框架</h1>
+        <h1>框架概念的出现</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -183,6 +183,15 @@
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/4/6
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Java/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                Java
+            </a>
         </span>
         
         
@@ -193,7 +202,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Java%E6%A1%86%E6%9E%B6Spring/" style="color: #ffa2c4">Java框架Spring</a>
+                <a href="/tags/%E6%A1%86%E6%9E%B6/" style="color: #00a596">框架</a>
             </span>
             
         </span>
@@ -201,10 +210,41 @@
     </div>
     
     <div class="content" v-pre>
-        <p>#关于Spring框架的三种思想提出</p>
-<p>1.IoC思想&#x3D;&#x3D;&gt;Inversion of Controller,控制反转，强调的是原来在程序中创建Bean的权利反转给第三方。</p>
+        <h2 id="关于Spring框架的三种思想提出"><a href="#关于Spring框架的三种思想提出" class="headerlink" title="关于Spring框架的三种思想提出"></a>关于Spring框架的三种思想提出</h2><p>1.IoC思想&#x3D;&#x3D;&gt;Inversion of Controller,控制反转，强调的是原来在程序中创建Bean的权利反转给第三方。</p>
+<p>谁去充当第三方角色呢？</p>
+<p>工厂设计模式，BeanFactory来充当第三方的角色，来产生Bean实例</p>
+<p>BeanFactory怎么知道产生哪些Bean实例呢？</p>
+<p>可以使用配置文件配置Bean的基本信息，BeanFactory根据配置文件来生产Bean实例</p>
 <p>2.DI思想&#x3D;&#x3D;&gt;Dependency Injection,依赖注入，强调的Bean之间关系，这种关系第三方负责去设置。</p>
 <p>3.AOP思想&#x3D;&#x3D;&gt;Aspect Oriented Programming，面向切面编程，功能的横向抽取，主要的实现方式就是Proxy.</p>
+<h3 id="框架的基本特点"><a href="#框架的基本特点" class="headerlink" title="-框架的基本特点"></a>-框架的基本特点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架（Framework）,是基于基础技术之上，从众多业务中抽取出的通用解决方案</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架是一个半成品，使用框架规定的语法开发可以提高开发效率，可以用简单的代码就能完成复杂的基础业务;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架内部使用大量的设计模式、算法、底层代码操作技术，如反射、内省、xml解析、注解解析等;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.框架一般都具备扩展性;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.有了框架，我们可以将精力尽可能的投入在纯业务开发上而不用去费心技术实现以及一些辅助业务。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Java中常用的框架："><a href="#Java中常用的框架：" class="headerlink" title="-Java中常用的框架："></a>-Java中常用的框架：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-不同语言，不同领域都有属于自己的框架，使用框架开发是作为程序员的最基础的底线。Java语言中的框架，可以分为基础框架和服务框架:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--基础框架:完成基本业务操作的框架，如MyBatis、Spring、SpringMVC、Struts2、Hibernate等</span><br><span class="line">-服务框架:特定领域的框架，一般还可以对外提供服务框架，如MQ、ES、Nacos等</span><br></pre></td></tr></table></figure>
+
+<h3 id="DI依赖注入的思想"><a href="#DI依赖注入的思想" class="headerlink" title="-DI依赖注入的思想"></a>-DI依赖注入的思想</h3><p>将UserDao在BeanFactory内部设置给UserService的过程叫做“<strong>注入</strong>”，而UserService需要依赖UserDao的注入才能正常工作，这个过程叫做“<strong>依赖注入</strong></p>
+<p><img src="/../img/1.png" alt="依赖注入"></p>
+<p>面试题：IoC 和 DI 的关系？</p>
+<p>首先，先回答IoC和DI的是什么：</p>
+<p>IoC： Inversion of Control，控制反转，将Bean的创建权由原来程序反转给第三方</p>
+<p>DI：Dependency Injection，依赖注入，某个Bean的完整创建依赖于其他Bean（或普通参数）的注入</p>
+<p>其次，在回答IoC和DI的关系：</p>
+<p>第一种观点：IoC强调的是Bean创建权的反转，而DI强调的是Bean的依赖关系，认为不是一回事</p>
+<p>第二种观点：IoC强调的是Bean创建权的反转，而DI强调的是通过注入的方式反转Bean的创建权，认为DI</p>
+<p>是IoC的其中一种实现方式</p>
+<h3 id="AOP-面向切面思想的提出"><a href="#AOP-面向切面思想的提出" class="headerlink" title="- AOP 面向切面思想的提出"></a>- AOP 面向切面思想的提出</h3><p>AOP，Aspect Oriented Programming，面向切面编程，是对面向对象编程OOP的升华。OOP是纵向对一个</p>
+<p>事物的抽象，一个对象包括静态的属性信息，包括动态的方法信息等。而AOP是横向的对不同事物的抽象，属</p>
+<p>性与属性、方法与方法、对象与对象都可以组成一个切面，而用这种思维去设计编程的方式叫做面向切面编程</p>
+<p><img src="/../img/2.png" alt="oop"></p>
 
     </div>
     
