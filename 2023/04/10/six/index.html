@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>Categories: 博客主题作用 | Mr.zhangのblog</title>
+        <title>Stream流 | Mr.zhangのblog</title>
         <meta name="author" content="Mr.zhang" />
         <meta name="description" content="java技术分享" />
         <!-- <i class="fa-brands fa-github"></i> -->
@@ -22,6 +22,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -162,26 +166,20 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        <span>
-            <a href="/categories/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BD%9C%E7%94%A8/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                博客主题作用
-            </a>
+                <div class="article">
+    <div>
+        <h1>Stream流</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/10
         </span>
         
-        
-        
-        
-        
-        <span>
-            <a href="/categories/Java/" style="background: #03a9f4">
+        <span class="category">
+            <a href="/categories/Java/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -190,30 +188,36 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java/" style="color: #03a9f4">Java</a>
+            </span>
+            
+        </span>
+        
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/4/5</div>
-            <a href="/2023/04/05/first/">
-                <h3>the first blog</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BD%9C%E7%94%A8/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        博客主题作用
-                    </a>
-                </span>
-                
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h3 id="Stream流式思想的核心"><a href="#Stream流式思想的核心" class="headerlink" title="Stream流式思想的核心"></a>Stream流式思想的核心</h3><p>1.先得到集合或者数组的Stream流</p>
+<p>2.把元素放上去</p>
+<p>3.然后就用这个Stream流简化的API来方便的操作元素。</p>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2023/4/10 14:08</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;String&gt; names=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        Collections.addAll(names,<span class="string">&quot;张三丰&quot;</span>,<span class="string">&quot;张无忌&quot;</span>,<span class="string">&quot;殷素素&quot;</span>,<span class="string">&quot;宋远桥&quot;</span>,<span class="string">&quot;张强&quot;</span>);</span><br><span class="line">        System.out.println(names);</span><br><span class="line">        names.stream().filter(s-&gt;s.startsWith(<span class="string">&quot;张&quot;</span>)&amp;&amp;s.length()==<span class="number">3</span>).forEach(s-&gt; System.out.println(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -246,6 +250,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
