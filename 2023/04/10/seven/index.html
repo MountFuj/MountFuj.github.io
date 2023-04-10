@@ -195,7 +195,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" style="color: #00bcd4">Mysql数据库</a>
+                <a href="/tags/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" style="color: #00a596">Mysql数据库</a>
             </span>
             
         </span>
@@ -203,10 +203,16 @@
     </div>
     
     <div class="content" v-pre>
-        <h3 id="事务的四大特性"><a href="#事务的四大特性" class="headerlink" title="事务的四大特性"></a>事务的四大特性</h3><p>1.原子性（Atomicity):事务是不可分割的最小操作单元，要么全部成功，要么全部失败。</p>
+        <h3 id="事务简介"><a href="#事务简介" class="headerlink" title="事务简介"></a>事务简介</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事务是一组操作的集合，这组操作，要么全部执行成功，要么全部执行失败。</span><br></pre></td></tr></table></figure>
+
+<h3 id="事务操作"><a href="#事务操作" class="headerlink" title="事务操作"></a>事务操作</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> TRANSACTION;<span class="comment">--开启事务</span></span><br><span class="line"><span class="keyword">COMMIT</span><span class="operator">/</span><span class="keyword">ROLLBACK</span>;<span class="comment">--提交/回滚事务</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事务的四大特性"><a href="#事务的四大特性" class="headerlink" title="事务的四大特性"></a>事务的四大特性</h3><p>1.原子性（Atomicity):事务是不可分割的最小操作单元，要么全部成功，要么全部失败。</p>
 <p>2.一致性（Consistency) :事务完成时，必须使所有的数据都保持一致状态。</p>
 <p>3.隔离性（lsolation):数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行。</p>
 <p>4.持久性（Durability):事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。</p>
+<h3 id="并发事务问题"><a href="#并发事务问题" class="headerlink" title="并发事务问题"></a>并发事务问题</h3><p>脏读、不可重复读、幻读</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><p>READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ、SERIALIZABLE</p>
 
     </div>
     
