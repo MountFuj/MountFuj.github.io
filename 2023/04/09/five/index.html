@@ -195,7 +195,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Java/" style="color: #03a9f4">Java</a>
+                <a href="/tags/Java/" style="color: #ff7d73">Java</a>
             </span>
             
         </span>
@@ -227,6 +227,10 @@
 <p>​		此时，如果这行代码是return语句，必须省略return不写，同时也必须省略 “:”不写</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        UseInter(()-&gt;</span><br><span class="line">            <span class="literal">null</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">UseInter</span><span class="params">(InterA interA)</span>&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">show</span> <span class="operator">=</span> interA.show();</span><br><span class="line">        System.out.println(show);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> <span class="title class_">InterA</span>&#123;</span><br><span class="line">        String <span class="title function_">show</span><span class="params">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="Lambda表达式和匿名内部类的区别"><a href="#Lambda表达式和匿名内部类的区别" class="headerlink" title="Lambda表达式和匿名内部类的区别"></a>Lambda表达式和匿名内部类的区别</h3><h4 id="使用限制不同"><a href="#使用限制不同" class="headerlink" title="使用限制不同"></a>使用限制不同</h4><p>.匿名内部类：可以操作类、接口</p>
+<p>.Lambda表达式：只能操作函数式接口</p>
+<h4 id="实现原理不同"><a href="#实现原理不同" class="headerlink" title="实现原理不同"></a>实现原理不同</h4><p>.匿名内部类：编译之后，产生一个单独的.class字节码文件</p>
+<p>.Lambda表达式：编译之后，没有一个单独的.class字节码文件</p>
 
     </div>
     
